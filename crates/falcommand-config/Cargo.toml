@@ -1,0 +1,25 @@
+[package]
+name = "falcommand-config"
+version = "0.1.0"
+edition = "2021"
+description = "Configuration management for FalCommand"
+license = "MIT"
+authors = ["varubogu"]
+
+[dependencies]
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Error handling
+thiserror = "1.0"
+anyhow = "1.0"
+
+# Async runtime (for Action::execute and file operations)
+tokio = { version = "1.0", features = ["process", "fs"] }
+
+# Cross-platform
+dirs = "5.0"
+
+# Logging
+log = "0.4"

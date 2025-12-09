@@ -1,0 +1,43 @@
+[workspace]
+members = [
+    "crates/falcommand-config",
+    "crates/falcommand-platform", 
+    "crates/falcommand-plugins",
+    "crates/falcommand-core",
+    "crates/falcommand-ui",
+]
+
+[package]
+name = "falcommand"
+version = "0.1.0"
+edition = "2021"
+description = "A fast and extensible command launcher"
+license = "MIT"
+authors = ["varubogu"]
+repository = "https://github.com/varubogu/falcommand"
+
+[[bin]]
+name = "falcommand"
+path = "src/main.rs"
+
+[dependencies]
+# Logging
+log = "0.4"
+env_logger = "0.11"
+
+# Async runtime
+tokio = { version = "1.0", features = ["full"] }
+
+# Error handling
+anyhow = "1.0"
+thiserror = "1.0"
+
+# Internal crates
+falcommand-config = { path = "crates/falcommand-config" }
+falcommand-platform = { path = "crates/falcommand-platform" }
+falcommand-plugins = { path = "crates/falcommand-plugins" }
+falcommand-core = { path = "crates/falcommand-core" }
+falcommand-ui = { path = "crates/falcommand-ui" }
+
+[dev-dependencies]
+tokio-test = "0.4"
